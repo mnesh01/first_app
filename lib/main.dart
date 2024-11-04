@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(
+    const MaterialApp(
       home: Scaffold(
-    backgroundColor: Colors.yellow,
-    body: Container(
+        body: GradientContainer(),
+      ),
+    ),
+  );
+}
+
+class GradientContainer extends StatelessWidget {
+  const GradientContainer({super.key});
+  @override
+  Widget build(context) {
+    return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.lime, Colors.teal],
+          colors: [Color.fromARGB(255, 154, 170, 13), Colors.teal],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
       ),
       child: const Center(
         child: (Text(
-          'FIRST APP',
+          'MIAMI',
           style: TextStyle(
             color: Colors.white,
             fontSize: 30,
           ),
         )),
       ),
-    ),
-  )));
+    );
+  }
 }
