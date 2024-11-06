@@ -5,20 +5,34 @@ var startAlignment = Alignment.topLeft;
 var endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  const GradientContainer({super.key, required this.colors});
+
+  void rollDice() {
+    
+
+  }
+
+  final List<Color> colors;
   @override
   Widget build(context) {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: const [Color.fromARGB(255, 154, 170, 13), Colors.teal],
+          colors: colors,
           begin: startAlignment,
           end: endAlignment,
         ),
       ),
-      child: const Center(
-        child: StyledText('FLORIDA'),
-      ),
+      child: Center(
+          child: Column(
+        children: [
+          Image.asset(
+            'assets/images/dice-1.png',
+            width: 100,
+          ),
+          TextButton(onPressed: rollDice, child: const Text('Roll dice'))
+        ],
+      )),
     );
   }
 }
